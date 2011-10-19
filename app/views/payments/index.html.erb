@@ -1,0 +1,59 @@
+<ul id="prod_nav"> 
+<li><span class="navbarsize awesome red">Payment</span></li> 
+</ul> 
+
+<h1 class="productTitle">Realize Payment</h1> 
+<div id="site-container"> 
+
+<!-- Left Panel Start -->
+<div id="site-full"> 
+<div style="width: 570px; float: left;"> 
+<h2 style="font-size: 22px;">Do you want to enjoy of the best information?</h2> 
+<p>Whit your <em>payment</em> you are allow to check the most important information for your <strong> inversion</strong>.</p> 
+<br></br>
+<div style="text-align: center; clear: both; font-size: 20px; line-height: 35px;">Enjoy of 30 days just for <strong>$75.00</strong><br></div>
+<div>
+  <p>
+    For your security we use paypal for your payment, giving you all the benefies of the system, click the image for more information.
+  </p>
+  <p><a href="http://www.paypal.com"><%= image_tag('https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif')%></a></p>
+</div>
+<div style="text-align: center; clear: both; font-size: 20px; line-height: 35px;">
+  <%=  link_to "Pay Now", {:action => "checkout"}, :class => "awesome xlarge green", :rel => "nofollow" %>
+</div>
+
+<div class="clear"></div> <br> <br>
+<br><br>
+</div> 
+</div> 
+<!-- Left Panel End -->
+
+<!-- Right Panel Start -->
+<div style="width: 338px; float: right; padding-right: 15px;">
+
+	<div id="features" class="shared_box" style="border: 1px solid #ff8202;">
+		<div style="background: #ff9501">Advantages...</div> 
+		<table cellpadding="0" cellspacing="0" class="orange"> 
+		<tbody>
+
+		<tr>
+		<td style="border: 0;"><span class="tip" alt="store.">Advantage</span></td>
+		<td style="border: 0;">***********</td>
+		</tr> 
+
+		<tr>
+		<td>Advantage</td>
+		<td><%= image_tag "orange_tick.png", :alt => 'T-Signals.com' %></td>
+		</tr> 
+		</tbody>
+		</table> 
+	</div> 
+ 
+	 <div style="text-align: center;"> 
+                 <%=  link_to "Pay Now", {:action => "checkout"}, :class => "awesome large red", :rel => "nofollow" %>
+		 <br><br> 
+                 <%= image_tag "moneyback.jpg", :alt => 'T-Signals.com', :width => "115" %>
+                 <%= image_tag "price_freeze.png", :alt => 'T-Signals.com'%>
+	 </div> 
+ </div>
+ <!-- Right Panel End -->

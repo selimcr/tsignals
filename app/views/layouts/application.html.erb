@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" class=" ">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+<meta name="keywords" content=""> 
+<meta name="description" content=""> 
+<title><%= yield(:title).blank? ? seo_meta_title : yield(:title) %></title>
+
+<%= stylesheet_link_tag 'default.css'%>
+<%= stylesheet_link_tag 'custom-theme/jquery-ui-1.8.16.custom.css'%>
+<%= javascript_include_tag "jquery-1.6.2.min", "jquery-ui-1.8.16.custom.min" %>
+<%= yield :additional_styles %>
+<%= javascript_tag "var AUTH_TOKEN = #{form_authenticity_token.inspect};" if protect_against_forgery? -%>
+<%= yield :additional_javascripts %>
+<script>
+$(function() {
+        // a workaround for a flaw in the demo system (http://dev.jqueryui.com/ticket/4375), ignore!
+        $( "#dialog:ui-dialog" ).dialog( "destroy" );
+
+        $( "#dialog-login" ).dialog({
+                width: 300,
+                height: 240,
+                modal: true
+        });
+        $( "#dialog-login" ).dialog( "close" );
+        $( "#open_login" )
+          .click(function() {
+                  $("#login-error").html("");
+                  $( "#dialog-login" ).dialog( "open" );
+          });
+        $( "#close_login" )
+          .click(function() {
+                  $( "#dialog-login" ).dialog( "close" );
+          });  
+          
+          
+          $('#user_session_new').submit(function () {
+            $.post($(this).attr('action'), $(this).serialize(), null, 'script');
+            return false;
+          });
+});
+</script>
+</head> 
+<body>
+  
+  <% unless current_user %>
+  <div id="dialog-login" title="Ingrese la informaci&oacute;n">
+    <%= form_for @user_session, :remote => true, :as => :user_session, :url => {:controller => "user_sessions", :action => "create" } do |f| %> 
+      <div id="login-error"></div>
+      
+
+      <%= f.label :login %><br /> 
+      <%= f.text_field :login %><br /> <br /> 
+
+      <%= f.label :password %><br /> 
+      <%= f.password_field :password %><br /> <br /> 
+
+      <%= f.check_box :remember_me %>
+      <%= f.label :remember_me %><br /> <br /> 
+
+      <%= f.submit "Login" %> 
+    <% end %>
+  </div>
+  <% end %>
+  
+<!-- Header Start -->
+<div id="header"> 
+	<div id="contact"> 
+		<div id="corpnav_contain"> 
+                  <div id="login-box">
+                    <%= login_html %>
+                  </div>
+		</div> 
+
+		<div id="contacts"> 
+                
+		<div style="padding-left: 1px; float: left;">
+                  <%= image_tag "phone.png", :alt => 'T-Signals.com', :height => "16", :width => "16" %> (506) 2222-2222
+                  &nbsp;&nbsp;
+                   <%= image_tag "email.png", :alt => 'T-Signals.com', :height => "16", :width => "16"%>
+                    <a href="#">CONTACT US</a>
+                </div> 
+
+		</div> 
+	</div> 
+
+	<h1><a href="#">aaaaaa</a></h1> 
+</div> 
+<nav> 
+<a href="/">Home</a> 
+<a href="#">Item 2</a> 
+<a href="#">Item 3</a> 
+<a href="#">Item 4</a> 
+<a href="#">Item 5</a> 
+
+<% if current_user %>
+  <%=  link_to "Payments", :controller => "payments" %>
+<%end %>
+</nav>
+<!-- Header End -->
+
+<div id="page-container"> 
+<div id="page-container-sub"> 
+
+ 
+<%= yield %>  
+ 
+ 
+ 
+ <div class="clear"></div> 
+ </div> 
+ </div> 
+ </div> 
+ 
+ <!-- Footer Start -->
+ <div id="footerwrap"> 
+	 <div id="footer"> 
+		 <div id="footnav" style="border-top: none; padding-top: 0;">		 
+			 <div class="prod"> <h3>Importants Links</h3>  
+			 <ul> 
+			 <li><a href="/">Home</a></li> 
+                         <li><a href="/register">Sign Up</a></li>
+			 </ul> 
+			 </div>
+			 
+			 <div class="prod" style="padding-right: 9px;"> 
+			 <h3>Other Links</h3> 
+			 <ul> 
+			 <li><a href="#">First</a></li> 
+			 </ul> 
+			 </div>
+
+			 <div style="float: right; padding-right: 10px; padding-top: 10px; text-align: right;"> 
+			 <%= image_tag "logo.png", :alt => 'T-Signals.com', :height => "89", :width => "223" %>			 		 
+			 
+			 <div class="clear" style="padding-bottom: 20px;"></div> 
+			 <p style="margin: 0; color: #ccc; line-height: 18px;">Copyright © 2011 
+			 <a href="http://tecnotek.co.cr/">Develop by Tecnotek</a>.
+			 <br>	All prices are in USD unless otherwise indicated.<br> 
+			 <a href="#" rel="nofollow">Terms of Service</a> | <a href="#" rel="nofollow">Acceptable Usage Policy</a> | <a href="#" rel="nofollow">Privacy Policy</a></p> 
+			 </div> 
+			 
+			 <div class="clear"></div> 
+		 </div> 
+	 </div> 
+ </div> 
+ <!-- Footer End -->
+
+</div>
+</body>
+</html>

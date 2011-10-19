@@ -1,0 +1,41 @@
+<h1 class="productTitle">Sign up</h1> 
+<div id="site-container"> 
+
+<!-- Left Panel Start -->
+<div id="site-full"> 
+<div style="width: 570px; float: left;"> 
+  <%= form_for @user, :as => :user, :url => {:controller => "users", :action => "register" } do |form| %> 
+  <table>
+    <tr><td colspan="2"><%= render "shared/error_messages", :target => @user %> </td></tr>
+    <tr><td><%= form.label :name %></td><td><%= form.text_field :name %></td></tr>  
+    <tr><td><%= form.label :email %></td><td> <%= form.text_field :email %> </td></tr>
+    <tr><td><%= form.label :login %></td><td><%= form.text_field :login %></td></tr>
+    <tr><td><%= form.label :password, form.object.new_record? ? nil : "Change password" %></td><td><%= form.password_field :password %></td></tr>
+    <tr><td><%= form.label :password_confirmation %></td><td><%= form.password_field :password_confirmation %></td></tr>
+  </table> 
+    <%= form.submit "Sign Up" %> 
+  <% end %>
+<div class="clear"></div> <br> <br>
+<br><br>
+</div> 
+</div> 
+<!-- Left Panel End -->
+
+
+<!-- Right Panel Start -->
+<div style="width: 338px; float: right; padding-right: 15px;">
+	<div id="features" class="shared_box" style="border: 1px solid #ff8202;">
+		<div style="background: #ff9501">Tips</div> 
+		<table cellpadding="0" cellspacing="0" class="orange"> 
+		<tbody>
+
+		<tr>
+                  <td style="border: 0;" colspan="2">
+                  <span class="tip">Please enter the basic information for your account and click the "Sign Up" Button.</span>
+                  </td>
+		</tr> 
+		</tbody>
+		</table> 
+	</div> 
+ </div>
+ <!-- Right Panel End -->

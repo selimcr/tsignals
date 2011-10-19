@@ -1,0 +1,60 @@
+<ul id="prod_nav"> 
+<li>
+  <span class="">
+  <%=  link_to "Payment", {:action => "index"}, :class => "navbarsize awesome"%>
+  </span>
+</li> 
+<li><a class="navbarsize awesome red" href="#">Confirm</a></li>
+</ul> 
+
+<h1 class="productTitle">Please Confirm Your Payment Details</h1> 
+<div id="site-container"> 
+
+<!-- Left Panel Start -->
+<div id="site-full"> 
+<div style="width: 570px; float: left;"> 
+
+  <table>
+    <tr><td width="75px"><strong>Ammount</strong></td><td>$500</td></tr>
+    <tr><td width="75px"><strong>Name</strong></td><td><%= @address['name'] %></td></tr>
+    <tr><td width="75px"><strong>Company</strong></td><td><%= @address['company'] %></td></tr>
+    <tr><td width="75px"><strong>Address 1</strong></td><td><%= @address['address1'] %></td></tr>
+    <tr><td width="75px"><strong>Address 2</strong></td><td><%= @address['address2'] %></td></tr>
+    <tr><td width="75px"><strong>City</strong></td><td><%= @address['city'] %></td></tr>
+    <tr><td width="75px"><strong>State</strong></td><td><%= @address['state'] %></td></tr>
+    <tr><td width="75px"><strong>Country</strong></td><td><%= @address['country'] %></td></tr>
+    <tr><td width="75px"><strong>Zip</strong></td><td><%= @address['zip'] %></td></tr>
+    
+  </table>
+  <br></br>
+  <% form_tag :action => 'complete', :token => params[:token], :payer_id => params[:PayerID] do %>
+    <%= submit_tag 'Complete Payment' %>
+  <% end %>
+
+<div class="clear"></div> <br> <br>
+<br><br>
+</div> 
+</div> 
+<!-- Left Panel End -->
+
+<!-- Right Panel Start -->
+<div style="width: 338px; float: right; padding-right: 15px;">
+
+	<div id="features" class="shared_box" style="border: 1px solid #ff8202;">
+		<div style="background: #ff9501">Tips</div> 
+		<table cellpadding="0" cellspacing="0" class="orange"> 
+		<tbody>
+
+		<tr>
+                  <td colspan="2" style="border: 0;"><span class="tip" alt="store.">Please check the payment information and confirm it by clicking the "Confirm" button.</span></td>
+		</tr> 
+		</tbody>
+		</table> 
+	</div> 
+ 
+	 <div style="text-align: center;">                  
+                 <%= image_tag "moneyback.jpg", :alt => 'T-Signals.com', :width => "115" %>
+                 <%= image_tag "price_freeze.png", :alt => 'T-Signals.com'%>
+	 </div> 
+ </div>
+ <!-- Right Panel End -->

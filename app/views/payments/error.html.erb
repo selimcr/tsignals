@@ -1,0 +1,46 @@
+<ul id="prod_nav"> 
+<li>
+  <span class="">
+  <%=  link_to "Payment", {:action => "index"}, :class => "navbarsize awesome"%>
+  </span>
+</li> 
+<li><a class="navbarsize awesome" href="#">Confirm</a></li>
+<li><a class="navbarsize awesome red" href="#">Error</a></li>
+</ul> 
+
+<h1 class="productTitle">Payment Incomplete</h1> 
+<div id="site-container"> 
+
+<!-- Left Panel Start -->
+<div id="site-full"> 
+<div style="width: 570px; float: left;"> 
+  <h1>Error</h1>
+  <p>Unfortunately an error occurred: <%= @message %></p>
+<div class="clear"></div> <br> <br>
+<br><br>
+</div> 
+</div> 
+<!-- Left Panel End -->
+
+<!-- Right Panel Start -->
+<div style="width: 338px; float: right; padding-right: 15px;">
+
+	<div id="features" class="shared_box" style="border: 1px solid #ff8202;">
+		<div style="background: #ff9501">Tips</div> 
+		<table cellpadding="0" cellspacing="0" class="orange"> 
+		<tbody>
+
+		<tr>
+                  <td colspan="2" style="border: 0;"><span class="tip">
+                      Check your payment information and your credit before try again this payment.</span></td>
+		</tr> 
+		</tbody>
+		</table> 
+	</div> 
+ 
+	 <div style="text-align: center;">                  
+                 <%= image_tag "moneyback.jpg", :alt => 'T-Signals.com', :width => "115" %>
+                 <%= image_tag "price_freeze.png", :alt => 'T-Signals.com'%>
+	 </div> 
+ </div>
+ <!-- Right Panel End -->

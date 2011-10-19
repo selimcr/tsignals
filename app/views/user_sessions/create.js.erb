@@ -1,0 +1,6 @@
+<% if flash[:notice].starts_with? 'Error' %>
+  $("#login-error").html("<%= escape_javascript(flash[:notice]).html_safe %>");
+<% else %>
+  window.location = "/"
+<% end %>
+

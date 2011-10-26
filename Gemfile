@@ -1,11 +1,10 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.7'
+gem 'rails', '3.1.1'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
-
-gem "mysql"
+#gem "mysql2", "~> 0.3.7"
 gem "authlogic"
 
 # Use unicorn as the web server

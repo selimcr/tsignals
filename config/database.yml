@@ -4,7 +4,7 @@ development:
   adapter: mysql2
   database: tsignals
   username: root
-  password: root
+  password: "12345"
   encoding: utf8
 
 # Warning: The database defined as "test" will be erased and
